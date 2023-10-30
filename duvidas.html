@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    
+    <link rel="shortcut icon" href="imagens/fav_icon.png" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="/styles/duvidas.css"/>
+    
+    <title>Dúvidas Frequentes</title>
+
+</head>
+
+<body>
+    <script>
+      function verificarAcesso() {
+        var loggedIn = sessionStorage.getItem("loggedIn");
+    
+        if (loggedIn !== "true") {
+          loggedIn = localStorage.getItem("loggedIn");
+        }
+    
+        if (loggedIn !== "true") {
+          window.location.href = "index.php";
+        }
+      }
+    
+      function logout() {
+        sessionStorage.removeItem("loggedIn");
+        localStorage.removeItem("loggedIn");
+        window.location.href = "index.php";
+      }
+      
+      verificarAcesso();
+    </script>
+
+	<nav class="navbar navbar-expand-md fixed-top" style="background-color: #324572;">
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="imagens/logo.png" alt="Logo do colégio Nahim Ahmad">
+        </a>
+		<!-- INICIO ACESSIBILIDADE -->
+		<span class="font-con"><button id="ativaContraste" onClick="contrasteON()" class="btn btn-secondary btn-sm">Alto Constraste</button>
+		<button onClick="tamanhoFonte('mais');">A+</button>
+		<button onClick="tamanhoFonte('menos');">A-</button>
+		</span>
+		<!-- FIM ACESSIBILIDADE -->			
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+                   <li class="nav-item">
+    <a class="nav-link link-nav" href="inicio.html">Início</a>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle link-nav" href="#" id="menuCadastro" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Cadastro
+    </a>
+    <div class="dropdown-menu" aria-labelledby="menuCadastro">
+	<a class="dropdown-item" href="cadastraraluno.html">Cadastrar Aluno</a>
+	<a class="dropdown-item" href="cadastrarchrome.html">Cadastrar Chromebook</a>
+        <a class="dropdown-item" href="cadastrar.html">Cadastrar Contrato</a>
+      
+	 
+    </div>
+</li>
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle link-nav" href="#" id="menuDiretorio" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Diretório
+    </a>
+    <div class="dropdown-menu" aria-labelledby="menuDiretorio">
+	<a class="dropdown-item" href="diretorioaluno.php">Diretório de Alunos</a>
+	<a class="dropdown-item" href="estoque.php">Diretório de Chromebooks</a>
+        <a class="dropdown-item" href="buscardozero.php">Diretório de Contratos</a>
+      
+    </div>
+</li>
+<li class="nav-item">
+    <a class="nav-link link-nav" href="duvidas.html">Dúvidas</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link link-nav-logout ml-md-3 pl-3 pr-3" onclick="logout()">Sair</a>
+</li>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <h4 class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-11 col-xxl-8 font-weight-bold text-center mt-4 mb-4" >
+                Dúvidas Frequentes
+            </h4>
+            <h5 class="mb-4">Aqui você encontrará as informações necessárias para utilizar a aplicação web de forma correta:</h5>
+            <div id="accordion">
+                <div class="container_duvidas">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="container_duvidas_titulo">Qual é a finalidade desse sistema?</a>
+                    <div id="collapse1" class="collapse container_duvidas">
+                        <div class="card-body container_duvidas_texto">
+                            Esse sistema foi desenvolvido com o objetivo de facilitar a gestão da informação relacionada à entrada e saída de Chromebooks, bem como acompanhar a vigência dos contratos desses dispositivos.<br>
+                            Ele permite o registro e o fácil acesso a essas informações, proporcionando uma melhor organização e controle do inventário de Chromebooks, além de facilitar a identificação de dispositivos disponíveis e sua distribuição adequada.
+                        </div>
+                    </div>
+                </div>
+                <div class="container_duvidas">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="container_duvidas_titulo">Qual é o procedimento para dar entrada dos Chromebooks em estoque?</a>
+                    <div id="collapse2" class="collapse container_duvidas">
+                        <div class="card-body container_duvidas_texto"> Para registrar a entrada dos Chromebooks em estoque no sistema, siga os passos:<br><br>
+                        1. Clique em "Cadastrar" no menu acima.<br>
+                        2. No campo "Serial", insira o serial correspondente ao Chromebook.<br>
+                        3. Certifique-se de preencher corretamente o serial para cada Chromebook.<br>
+                        4. Em "Situação Contratual" selecione a opção "Em estoque".<br>
+                        5. Clique no botão "Cadastrar" e pronto!<br><br>
+                        Ao fazer isso, o sistema registra a quantidade de Chromebooks disponíveis para entregar aos alunos por parte do Colégio.</div>
+                    </div>
+                </div>
+                <div class="container_duvidas">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3" class="container_duvidas_titulo">Como registrar um contrato no sistema?</a>
+                    <div id="collapse3" class="collapse container_duvidas">
+                        <div class="card-body container_duvidas_texto">Após o responsável assinar o contrato e receber o Chromebook, o funcionário responsável pela entrega deve seguir estes passos:<br><br>
+                        1. Pesquisar o serial do Chromebook no Diretório.<br>
+                        2. Editar as informações nos campos indicados, incluindo:<br>
+                        -Nome do aluno;<br>
+                        -Nome do responsável financeiro;<br>
+                        -Número da matrícula;<br>
+                        -Data da entrega<br>
+                        -Situação contratual.<br>
+                        3. Certifique-se de inserir todas as informações corretamente.<br><br>
+                        Observação: Se na consulta do serial aparecer um contrato já preenchidos com dados, isso significa que o chromebook em questão já pertenceu a outro aluno e foi devolvido ao colégio,
+                        esse registro não poderá ser editado ou excluído. Deverá ser feito um novo registro."
+                        </div>
+                    </div>
+                </div>
+                <div class="container_duvidas">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4" class="container_duvidas_titulo">Qual o procedimento quando o chromebook for devolvido?</a>
+                    <div id="collapse4" class="collapse container_duvidas"> 
+                        <div class="card-body container_duvidas_texto">
+                            <p>
+                            Quando um Chromebook é devolvido, é importante seguir as etapas abaixo:<br><br>
+                            1. Verificar o estado do Chromebook: Examine o dispositivo para garantir que esteja em boas condições de funcionamento e que não haja danos físicos significativos.<br>
+                            2. Após o responsável financeiro assinar o distrato, pesquise no sistema pelo serial correspondente e atualize a situação contratual para "Inativo".<br>
+                            3. Faça um novo registro na tela de cadastro utilizando o serial do Chromebook devolvido e deixe a situação contratual como "Em estoque".<br><br>
+                            Dessa forma, ficará registrado no sistema que o responsável pelo Chromebook efetuou a devolução e o dispositivo estará disponível para ser entregue a um novo aluno.<br>
+                            Essas etapas ajudarão a gerenciar corretamente a devolução do Chromebook, atualizando as informações no sistema e tornando-o disponível para futuras alocações.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+</body>
+
+</html>
